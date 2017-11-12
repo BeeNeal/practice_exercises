@@ -1,0 +1,24 @@
+1. Why does set break up one string but not multiple?
+
+>>> ex1 = {"example"}
+>>> ex1
+set(['example'])
+>>> ex2 = set("example")
+>>> ex2
+set(['a', 'e', 'm', 'l', 'p', 'x'])
+
+
+def square_digits(num):
+    """takes in int and returns each digit squared"""
+
+    string_nums = str(num)    
+    num_lst = [int(item) ** 2 for item in string_nums]
+
+    squared_digits = "".join(map(str, num_lst))
+    return int(squared_digits)
+
+
+#problem - split "not working" - 190 is 190 not 1 9 0
+    #actually - split was causing the problem! why?
+
+    #what is map doing?

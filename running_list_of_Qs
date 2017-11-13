@@ -22,3 +22,33 @@ def square_digits(num):
     #actually - split was causing the problem! why?
 
     #what is map doing?
+
+ _____
+
+ set up a function to open file, why can't use that function for other functions?
+
+ def parse_data(filename):
+    """read and split"""
+
+    file_data = open(filename)
+    for line in file_data:
+        items = line.split('|')
+
+
+def sort_by_cohort(filename):
+    """sorting students by cohort"""
+
+    parse_data(filename)
+    print items
+
+    all_students = []
+    winter_16 = []
+    spring_16 = []
+    summer_16 = []
+    fall_15 = []
+    ghosts = []
+
+    all_students.append()
+    return all_students
+
+sort_by_cohort("cohort_data.txt")

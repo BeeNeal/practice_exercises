@@ -24,7 +24,6 @@ def sort_by_cohort(filename):
 
     cohort_info = open(filename)
     all_students = []
-    students = []
     winter_16 = []
     spring_16 = []
     summer_16 = []
@@ -32,12 +31,35 @@ def sort_by_cohort(filename):
     ghosts = []
 
     for line in cohort_info:
-        items =line.split('|')
-        all_students.append(" ".join(items[0:2]))
+        items = line.split('|')
+        # if items[4] != "I\n":
+        #     all_students.append(" ".join(items[0:2]))
+        if items[4] == 'Winter 2016\n':
+            winter_16.append(" ".join(items[0:2]))
+        elif items[4] == 'Spring 2016\n':
+            spring_16.append(" ".join(items[0:2]))
+        elif items[4] == 'Summer 2016\n':
+            summer_16.append(" ".join(items[0:2]))
+        elif items[4] == 'Fall 2015\n':
+            fall_15.append(" ".join(items[0:2]))
+        elif items[4] == 'G\n':
+            ghosts.append(" ".join(items[0:2]))
+
+    all_students = winter_16 + spring_16 + summer_16 + fall_15 + ghosts
     return all_students
 
+    #below list comp doesn't work yet
+    # winter_16 = [items[0:2] for item in items if items[4] == 'Winter 2016\n']
 
-    return students
+
+# below = ghosts works!
+    # for line in cohort_info:
+    #     items = line.split('|')
+    #     if items[4] == "G\n":
+    #         ghosts.append(" ".join(items[0:2]))
+    # return ghosts
+
+
 
 sort_by_cohort("cohort_data.txt")
 
